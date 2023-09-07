@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Audio Input</title>
+</head>
+
+<body>
+    <h2>Select a file to upload</h2>
+    <p>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        Label: {{ messages[0] }}
+        {% endif %}
+        {% endwith %}
+    </p>
+    <form method="post" action="/file" enctype="multipart/form-data">
+        <dl>
+            <p>
+                <input type="file" name="audio_file" autocomplete="off" required>
+            </p>
+        </dl>
+        <p>
+            <input type="submit" value="Submit">
+        </p>
+    </form>
+</body>
+</html>
